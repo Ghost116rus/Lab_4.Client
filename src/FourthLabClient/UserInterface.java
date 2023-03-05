@@ -69,6 +69,7 @@ public class UserInterface
                     _server.SendMessage(message); break;
                 case 2:
                     _server.AwaitMessage();
+                    break;
                 case 3:
                     infiCycle = false;
                     _server.EndWork();

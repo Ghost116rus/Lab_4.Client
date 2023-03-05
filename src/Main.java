@@ -10,7 +10,10 @@ import FourthLabClient.UserInterface;
 public class Main {
     public static void main(String[] args) {
 
-        UserInterface userInterface = new UserInterface();
+        UserInterface userInterface;
+        if (args.length != 3)  {  userInterface = new UserInterface();  }
+        else {  userInterface = new UserInterface(args);   }
+
         userInterface.Start();
     }
 }

@@ -7,8 +7,9 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.net.SocketException;
+import java.util.Objects;
 import java.util.Observable;
+
 
 public class WorkWithServer extends Observable
 {
@@ -20,6 +21,9 @@ public class WorkWithServer extends Observable
 
     private final WorkWithConsole _console;
     private final WorkWithFile _filePrinter;
+    private final RecieveMessage _reciveMessage;
+    private final Await _awaitMessage;
+
 
 
     public WorkWithServer()
@@ -42,6 +46,9 @@ public class WorkWithServer extends Observable
             _addr = InetAddress.getByName(host);
             _socket = new DatagramSocket();
         } catch(IOException e) { e.printStackTrace(); }
+
+        _reciveMessage = new RecieveMessage(_lengthPacket, _socket);
+        _awaitMessage = new Await();
     }
 
     /**
@@ -70,26 +77,17 @@ public class WorkWithServer extends Observable
         }
     }
 
-    /**
-     * Метод получения сообщений от Сервера
-     * @return вовзращает в виде строки полученное сообщение
-     */
-    private String RecieveMessage()
-    {
-        String result = "";
-
-        try
-        {
-            byte[] data2;
-            data2 = new byte[_lengthPacket];
-            DatagramPacket packet = new DatagramPacket(data2, data2.length);
-            _socket.receive(packet);
-            result = (new String(packet.getData())).trim();
-        } catch(IOException e) { e.printStackTrace(); }
-
-        _console.OutputInConsole("Получено от сервера: " + result);
-        return result;
-    }
+//    /**
+//     * Метод получения сообщений от Сервера
+//     * @return вовзращает в виде строки полученное сообщение
+//     */
+//    private String RecieveMessage()
+//    {
+//        String result = "";
+//
+//        _console.OutputInConsole("Получено от сервера: " + result);
+//        return result;
+//    }
 
     /**
      * Метод для отправки сообщения и последующего ожидания получения
@@ -108,7 +106,38 @@ public class WorkWithServer extends Observable
      */
     public String AwaitMessage()
     {
-        return RecieveMessage();
+        try
+        {
+            Thread recieve = new Thread (_reciveMessage,"threadRecieve");
+            Thread await = new Thread (_awaitMessage,"threadAwait");
+
+            String result = "";
+
+            recieve.start();
+            await.start();
+
+            while(true)
+            {
+                if(!Objects.equals(_reciveMessage.result, ""))
+                {
+                    result = _reciveMessage.result;
+                    recieve.interrupt();
+                    break;
+                }
+                else if(!Objects.equals(_awaitMessage.result, ""))
+                {
+                    result = _awaitMessage.result;
+                    await.interrupt();
+                    break;
+                }
+            }
+
+
+            return result;
+        }
+        catch(Exception e) { e.printStackTrace(); }
+
+        return "";
     }
 
     public void EndWork()

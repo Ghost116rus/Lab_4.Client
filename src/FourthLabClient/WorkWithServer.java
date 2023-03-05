@@ -33,7 +33,7 @@ public class WorkWithServer extends Observable
         _port = port;
 
         _console = new WorkWithConsole();
-        _filePrinter = new WorkWithFile(WorkWithFile.GetData("settings.txt"));
+        _filePrinter = new WorkWithFile(WorkWithFile.GetData("C:\\Users\\Данил\\IdeaProjects\\Lab_4.Client\\src\\FourthLabClient\\settings.txt"));
         Watcher watcherWhoWriteInFile = new Watcher(_filePrinter);
         _console.addObserver(watcherWhoWriteInFile);
 
@@ -59,13 +59,13 @@ public class WorkWithServer extends Observable
             try
             {
                 _socket.send(packet);
-                _console.OutputInConsole("Сообщение отправлено...");
+                _console.OutputInConsole("Message sent...");
                 return 0;
             } catch(IOException e) { e.printStackTrace(); return -1; }
         }
         else
         {
-            _console.OutputInConsole("Превышен размер отправляемого сообщения");
+            _console.OutputInConsole("The size of the message being sent has been exceeded");
             return -2;
         }
     }
@@ -87,7 +87,7 @@ public class WorkWithServer extends Observable
             result = (new String(packet.getData())).trim();
         } catch(IOException e) { e.printStackTrace(); }
 
-        _console.OutputInConsole("Получено от сервера: " + result);
+        _console.OutputInConsole("Received from the server: " + result);
         return result;
     }
 

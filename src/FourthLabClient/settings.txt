@@ -1,1 +1,1 @@
-LogFile: "log.txt"
+LogFile: C:\Users\Данил\IdeaProjects\Lab_4.Client\log.txt

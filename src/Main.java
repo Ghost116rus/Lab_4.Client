@@ -1,5 +1,10 @@
 import FourthLabClient.UserInterface;
 
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+
 
 // Опишем задание клиента
 // Работаем по UDP

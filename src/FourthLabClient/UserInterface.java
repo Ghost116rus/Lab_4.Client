@@ -23,25 +23,25 @@ public class UserInterface
 
     private void Menu()
     {
-        System.out.println("Основной функционал системы:");
-        System.out.println("1 - Отправка сообщения и ожидание ответа");
-        System.out.println("2 - Дополнительные команды");
-        System.out.println("3 - Завершение работы");
-        System.out.println("0 - Вывод меню");
+        System.out.println("The main functionality of the system:");
+        System.out.println("1 - Sending a message and waiting for a response");
+        System.out.println("2 - Additional commands");
+        System.out.println("3 - Shutdown");
+        System.out.println("0 - Menu output");
     }
 
     private void AdditionalCommands()
     {
-        System.out.println("Дополнительный функционал системы:");
-        System.out.println("12 - Отправка сообщения без ожидания");
-        System.out.println("22 - ожидание ответа от сервера");
-        System.out.println("0 - Вывод меню");
+        System.out.println("Additional system functionality:");
+        System.out.println("12 - Sending a message without waiting");;
+        System.out.println("22 - waiting for a response from the server");
+        System.out.println("0 - Menu output");
     }
 
 
     private int InputFunc()
     {
-        System.out.print("Введите команду: ");
+        System.out.print("Enter the command: ");
         String input = in.nextLine();
         try
         {
@@ -70,11 +70,11 @@ public class UserInterface
                 case 2:
                     AdditionalCommands(); break;
                 case 1:
-                    System.out.print("Введите текст: ");
+                    System.out.print("Enter the text: ");
                     message = in.nextLine();
                     _server.SendAndGet(message); break;
                 case 12:
-                    System.out.print("Введите текст: ");
+                    System.out.print("Enter the text: ");
                     message = in.nextLine();
                     _server.SendMessage(message); break;
                 case 22:
@@ -85,7 +85,7 @@ public class UserInterface
                     break;
 
                 default:
-                    System.out.println("Введена неверная команда");
+                    System.out.println("Invalid command");
             }
         }
     }

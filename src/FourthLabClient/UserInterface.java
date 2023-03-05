@@ -25,11 +25,19 @@ public class UserInterface
     {
         System.out.println("Основной функционал системы:");
         System.out.println("1 - Отправка сообщения и ожидание ответа");
-        System.out.println("12 - Отправка сообщения без ожидания");
-        System.out.println("2 - ожидание ответа от сервера");
+        System.out.println("2 - Дополнительные команды");
         System.out.println("3 - Завершение работы");
         System.out.println("0 - Вывод меню");
     }
+
+    private void AdditionalCommands()
+    {
+        System.out.println("Дополнительный функционал системы:");
+        System.out.println("12 - Отправка сообщения без ожидания");
+        System.out.println("22 - ожидание ответа от сервера");
+        System.out.println("0 - Вывод меню");
+    }
+
 
     private int InputFunc()
     {
@@ -59,6 +67,8 @@ public class UserInterface
             {
                 case 0:
                     Menu(); break;
+                case 2:
+                    AdditionalCommands(); break;
                 case 1:
                     System.out.print("Введите текст: ");
                     message = in.nextLine();
@@ -67,7 +77,7 @@ public class UserInterface
                     System.out.print("Введите текст: ");
                     message = in.nextLine();
                     _server.SendMessage(message); break;
-                case 2:
+                case 22:
                     _server.AwaitMessage();
                 case 3:
                     infiCycle = false;

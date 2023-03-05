@@ -98,8 +98,13 @@ public class WorkWithServer extends Observable
      */
     public String SendAndGet(String message)
     {
-        SendMessage(message);
-        return AwaitMessage();
+        var check = SendMessage(message);
+        String result = "-1";
+
+        if (check == 0)
+            result = AwaitMessage();
+
+        return result;
     }
 
     /**
@@ -113,7 +118,6 @@ public class WorkWithServer extends Observable
 
     public void EndWork()
     {
-        _filePrinter.EndWork();
         _socket.close();
     }
 

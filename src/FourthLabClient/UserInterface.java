@@ -8,17 +8,18 @@ public class UserInterface
     private final Scanner in;
     public UserInterface()
     {
-        _server = new WorkWithServer();
         in = new Scanner(System.in);
-    }
-    public UserInterface(String[] args)
-    {
-        int lengthPacket = Integer.parseInt(args[0]);
-        String host = args[1];
-        int port = Integer.parseInt(args[2]);
+
+        System.out.println("default settings: \"localhost\" 2345");
+
+        int lengthPacket = 60;
+        System.out.print("Enter the address: ");
+        String host = in.nextLine();
+        System.out.print("Enter the port: ");
+        int port = in.nextInt();
+        in.nextLine();
 
         _server = new WorkWithServer(lengthPacket, host, port);
-        in = new Scanner(System.in);
     }
 
     private void Menu()

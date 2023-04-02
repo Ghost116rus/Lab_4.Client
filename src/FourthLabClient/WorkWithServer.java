@@ -33,7 +33,7 @@ public class WorkWithServer extends Observable
         _port = port;
 
         _console = new WorkWithConsole();
-        _filePrinter = new WorkWithFile(WorkWithFile.GetData("C:\\Users\\Данил\\IdeaProjects\\Lab_4.Client\\src\\FourthLabClient\\settings.txt"));
+        _filePrinter = new WorkWithFile(WorkWithFile.GetData(".\\src\\FourthLabClient\\settings.txt"));
         Watcher watcherWhoWriteInFile = new Watcher(_filePrinter);
         _console.addObserver(watcherWhoWriteInFile);
 

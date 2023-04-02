@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac67bf9d-2ff8-4038-b5e0-504a9ca1ac0c" name="Changes" comment="Завершено">
+    <list default="true" id="ac67bf9d-2ff8-4038-b5e0-504a9ca1ac0c" name="Changes" comment="Подправил задание порта и адреса, клиент готов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FourthLabClient/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FourthLabClient/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678033250549</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Подправил задание порта и адреса, клиент готов">
+      <created>1680472814970</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680472814971</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +100,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Завершено" />
-    <option name="LAST_COMMIT_MESSAGE" value="Завершено" />
+    <MESSAGE value="Подправил задание порта и адреса, клиент готов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Подправил задание порта и адреса, клиент готов" />
   </component>
 </project>
